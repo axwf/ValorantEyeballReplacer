@@ -6,6 +6,7 @@ bl_info = {
     "description": "Allows user to quickly change default eyes on Valorant characters to those in a selected directory.",
     "location": "View3D > Tool Shelf > Valo Eye Replacer",
     "license": "GPL",
+    "version": (1, 0, 0)
 }
 
 import bpy
@@ -86,6 +87,7 @@ def BoneInfo(rig, bone_name):
         "rotation_euler_z": bone_rotation_euler.z
     }
     
+    
 def append_eyes(blend_file_path, l_data, r_data, rig):
     """Appends object from eye file into scene"""
     
@@ -128,6 +130,23 @@ def append_eyes(blend_file_path, l_data, r_data, rig):
     return
 
 
+class ValorantEyeReplacerPreferences(bpy.types.AddonPreferences):
+    """Folder Preferences"""
+    # Set bl_idname to match the name of your addon module
+    bl_idname = "valo_eye_replacer"
+
+    folder_path: bpy.props.StringProperty(
+        name="Eye Directory (.blend):",
+        description="File containing replacement eyeball .blend file",
+        default="",
+        subtype='FILE_PATH',
+    )
+
+    def draw(self, context):
+        layout = self.layout
+        layout.prop(self, "folder_path")
+
+
 class ReplaceEyes(bpy.types.Operator):
     """Removes Eyes & Replaces them // Main Function Class"""
     bl_idname = "object.replace_eyes"
@@ -137,19 +156,29 @@ class ReplaceEyes(bpy.types.Operator):
     def execute(self, context):
         global mesh, rig, mesh_select, rig_select, l_data, r_data
         
+        addon_prefs = bpy.context.preferences.addons["valo_eye_replacer"].preferences
+        folder_path = addon_prefs.folder_path
+        
+        
         if mesh is None or rig is None:
             self.report({'WARNING'}, "Please select both a mesh and an armature.")
+            
             return {'CANCELLED'}
         
-        #Functions to Remove Eyes
-        remove_eyes(mesh, "L_Eyeball")
-        remove_eyes(mesh, "R_Eyeball")
-        l_data = BoneInfo(rig, "L_Eyeball")
-        r_data = BoneInfo(rig, "R_Eyeball")
-        append_eyes(r"E:\Users\Downloads\EyeBallReplacer\Eyeball.blend", l_data, r_data, rig)
+        if folder_path:
+            #Functions to Remove Eyes
+            remove_eyes(mesh, "L_Eyeball")
+            remove_eyes(mesh, "R_Eyeball")
+            l_data = BoneInfo(rig, "L_Eyeball")
+            r_data = BoneInfo(rig, "R_Eyeball")
+            append_eyes(folder_path, l_data, r_data, rig)
         
-        return {'FINISHED'}
-
+            return {'FINISHED'}
+        
+        else:
+            self.report({'WARNING'}, "Invalid or missing directory!")
+            return {'CANCELLED'}
+        
 
 class GetRig(bpy.types.Operator):
     """Button to grab armature object"""
@@ -198,7 +227,7 @@ class MainUIPanel(bpy.types.Panel):
         scene = context.scene
 
         # Label1
-        layout.label(text="VALORANT Eye Replacer v.1.00")
+        layout.label(text="VALORANT Eye Replacer")
         layout.label(text = "By @BrainezVisuals on X")
         
         # Row1 - Armature selection
@@ -223,9 +252,13 @@ class MainUIPanel(bpy.types.Panel):
         row = layout.row()
         row.scale_y = 2.0
         row.operator("object.replace_eyes", icon = 'PLAY')
+        
+        row3 = layout.row()
+        row3.label(text="v1.00")
 
 
 class_list = (
+    ValorantEyeReplacerPreferences,
     MainUIPanel,
     GetRig,
     GetMesh,
