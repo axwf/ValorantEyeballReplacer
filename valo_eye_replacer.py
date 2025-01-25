@@ -136,7 +136,7 @@ class ValorantEyeReplacerPreferences(bpy.types.AddonPreferences):
     bl_idname = "valo_eye_replacer"
 
     folder_path: bpy.props.StringProperty(
-        name="Eye Directory (.blend):",
+        name="Eye Directory (.blend)",
         description="File containing replacement eyeball .blend file",
         default="",
         subtype='FILE_PATH',
