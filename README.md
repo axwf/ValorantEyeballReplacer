@@ -10,6 +10,8 @@ The Valorant Eyeball Replacer Addon allows the user to quickly change the defaul
   - Inside of Blender go to Edit > Preferences > Addons. Click the arrow on the top right and select "Install from Disk". Choose the [valo_eye_replacer.py](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/valo_eye_replacer.py) file.
 
   - Navigate to the Valorant Eye Replacer preferences in the Blender Addons tab. Navigate to the Eye Directory (.blend) file path. Place the directory to your eyeball .blend file that you would like to use with the addon. Ensure that the eyeball .blend file only contains one object, that being your eyeball.
+    
+<img width="527" alt="Screenshot 2025-02-28 161331" src="https://github.com/user-attachments/assets/d6e0820a-dd17-4117-bce0-84b9d2545ad8" />
 
 ## Usage
 
