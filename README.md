@@ -3,13 +3,13 @@ The Valorant Eyeball Replacer Addon allows the user to quickly change the defaul
 
 ## Installation
 
-  - Download [valo_eye_replacer.py](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/valo_eye_replacer.py) from the Valorant Eyeball Replacer Adddon GitHub page.
+  - Download [valo_eye_replacer.zip](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/Valorant%20Eye%20Replacer.zip) from the Valorant Eyeball Replacer Adddon GitHub Repo.
 
   - Locate an eyeball .blend file of choice to use with the addon. Can be custom made or purchased.
 
   - Inside of Blender go to Edit > Preferences > Addons. Click the arrow on the top right and select "Install from Disk". Choose the [valo_eye_replacer.py](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/valo_eye_replacer.py) file.
 
-  - Navigate to the Valorant Eye Replacer preferences in the Blender Addons tab. Navigate to the Eye Directory (.blend) file path. Place the directory to your eyeball .blend file that you would like to use with the addon.
+  - Navigate to the Valorant Eye Replacer preferences in the Blender Addons tab. Navigate to the Eye Directory (.blend) file path. Place the directory to your eyeball .blend file that you would like to use with the addon. Ensure that the eyeball .blend file only contains one object, that being your eyeball.
 
 ## Usage
 
@@ -21,7 +21,7 @@ The Valorant Eyeball Replacer Addon allows the user to quickly change the defaul
 
   - Click the "Replace Eyes" Button.
 
-  - Adjust the scale of each individual eye until it fits the needs of your character.
+  - Adjust the scale & rotation of each individual eye until it fits the needs of your character. For some instances, you may need to rotate your eyeball by 90 degrees on the x-axis within Blender. 
 
 ## Common Errors
   - Not choosing correct amarture.
@@ -30,6 +30,7 @@ The Valorant Eyeball Replacer Addon allows the user to quickly change the defaul
     
   - Not including a directory for eyeball .blend file.
 
+  - Eyeball .blend file contains more than one object
 
  ## Credits
 
