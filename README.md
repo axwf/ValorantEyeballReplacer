@@ -3,7 +3,7 @@ The Valorant Eyeball Replacer Addon allows the user to quickly change the defaul
 
 ## Installation
 
-  - Download [valo_eye_replacer.zip](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/Valorant%20Eye%20Replacer.zip) from the Valorant Eyeball Replacer Adddon GitHub Repo.
+  - Download [valo_eye_replacer.py](https://github.com/maxgoldblatt/ValorantEyeballReplacer/blob/main/valo_eye_replacer.py) from the Valorant Eyeball Replacer Adddon GitHub Repo.
 
   - Locate an eyeball .blend file of choice to use with the addon. Can be custom made or purchased.
 
